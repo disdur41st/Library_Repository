@@ -73,6 +73,16 @@ WSGI_APPLICATION = 'Library_Database.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Library_Database',
+        'USER': 'disdur41st',
+        'PASSWORD': '123',
+        'HOST': 'СЕРВЕР БАЗЫ ДАННЫХ',
+        'PORT': '5432'
+        }
+    } 
 
 DATABASES = {
     'default': {

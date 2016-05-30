@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2 style="text-align:center;">Библиотека</h2>
+            <big>Сотрудники библиотеки</big>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Наименование</th>
+                  <th>Время</th>
+                  <th>Дата</th>                
+                </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees_list %}
+                        <tr>
+                            <th scope="row">{{employee.id}}</th>
+                            <td>{{employee.name}}</td>
+                            <td>{{employee.patronymic_name}}</td>
+                            <td>{{employee.surname}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <big>Читатели</big>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                        <th>Отчество</th>
+                        <th>Номер читательского билета</th>
+                        <th>Номер паспорта</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reader in readers_list %}
+                    <tr>
+                        <th scope="row">{{participant.id}}</th>
+                        <td>{{reader.name}}</td>
+                        <td>{{reader.patronymic_name}}</td>
+                        <td>{{reader.surname}}</td>
+                        <td>{{reader.library_card_number}}</td>
+                        <td>{{reader.passport_number}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <big>Операции</big>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID книги</th>
+                        <th>Номер читательского билета</th>
+                        <th>ID сотрудника библиотеки</th>
+                        <th>Дата</th>
+                        <th>Требуемая дата возврата книги</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for operation in operations_list %}
+                    <tr>
+                        <th scope="row">{{operation.id}}</th>
+                        <td>{{operation.library_card_number}}</td>
+                        <td>{{operation.library_employee}}</td>
+                        <td>{{operation.operation_date}}</td>
+                        <td>{{operation.required_return_date}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	</body>
+</html>

@@ -30,25 +30,13 @@ class Operation(models.Model):
                                       choices=OPERATION_TYPE_CHOICES,
                                       default=RELEASE)
 
-    
-
-class BookSeries(models.Model):
+class BookCopy(models.Model):
     name = models.CharField(max_length=30)
     year_of_publication = models.IntegerField()
-    amount_of_all_copies = models.IntegerField()
-    catalogue = models.ForeignKey('LibraryCatalogue')
-    one_day_delay_price = models.IntegerField()
-    
-class BookCopy(models.Model):
-    book_series = models.ForeignKey('BookSeries')
-
-    
-class LibraryCatalogue(models.Model):
-    name_of_catalogue = models.CharField(max_length=50)
-    
+    amount_of_all_copies = models.IntegerField() 
 
 class Author(models.Model):
     name = models.CharField(max_length=30)
     patronymic_name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
-    book_series = models.ManyToManyField(BookSeries)
+    book_copy = models.ManyToManyField(BookCopy)

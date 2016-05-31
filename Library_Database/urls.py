@@ -17,7 +17,7 @@ from django.conf.urls import patterns, url
 
 from django.contrib import admin
 
-from Library_App.views import IndexView
+from Library_Database.views import IndexView
 
 admin.autodiscover()
 

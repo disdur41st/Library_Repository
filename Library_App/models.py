@@ -3,7 +3,7 @@ class LibraryEmployee(models.Model):
     name = models.CharField(max_length=30)
     patronymic_name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
-    position = models.CharField(max_length=30)
+    position = models.TextField(max_length=30)
 
 class Reader(models.Model):
     library_card_number = models.IntegerField(primary_key=True)
@@ -21,17 +21,16 @@ class Operation(models.Model):
     operation_date = models.DateField()
     required_return_date = models.DateField()
     OPERATION_TYPE_CHOICES = (
-        (GIVE_OUT, 'Выдача'),
-        (RECEIVING, 'Приём'),
+        ('Выдача', 'Выдача'),
+        ('Приём', 'Приём'),
         )
     operation_type = models.CharField(max_length=2,
                                       choices=OPERATION_TYPE_CHOICES,
-                                      default=RELEASE)
+                                      default='Выдача')
 
 class BookCopy(models.Model):
     name = models.CharField(max_length=30)
-    year_of_publication = models.IntegerField()
-    #amount_of_all_copies = models.IntegerField() 
+    year_of_publication = models.IntegerField() 
 
 class Author(models.Model):
     name = models.CharField(max_length=30)

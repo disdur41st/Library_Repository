@@ -20,6 +20,5 @@ from Library_Database.views import IndexView
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls),
-    IndexView.as_view()),
-)
+                       url(r'^admin/', admin.site.urls),
+                       url(r'^$', IndexView.as_view()))

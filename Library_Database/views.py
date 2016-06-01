@@ -22,7 +22,7 @@ class IndexView(TemplateView):
         return context
 
 
-    #Reader.objects.create (id = 1, library_card_number = 5946354869, name = "Алексей", patronymic_name = "Петрович", surname = "Фандорин", passport_number = 1568735195, date_of_birth = "1984-10-12", group_number = 562)
+    Reader.objects.create (id = 1, library_card_number = 5946354869, name = "Алексей", patronymic_name = "Петрович", surname = "Фандорин", passport_number = 1568735195, date_of_birth = "1984-10-12", group_number = 562)
     #Reader.objects.create (id = 2, library_card_number = 5948351684, name = "Аркадий", patronymic_name = "Львович", surname = "Ночин", passport_number = 1368495362, date_of_birth = "1965-05-02", group_number = 469)
     #Reader.objects.create (id = 3, library_card_number = 4962384679, name = "Августин", patronymic_name = "Эрнестович", surname = "Зубрин", passport_number = 5316792645, date_of_birth = "1990-05-22", group_number = 163)
 

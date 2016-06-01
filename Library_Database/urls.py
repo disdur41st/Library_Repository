@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
-from Library_Database.views import IndexView
+from Library_App.views import IndexView
 
 admin.autodiscover()
 

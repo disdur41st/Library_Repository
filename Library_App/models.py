@@ -12,7 +12,7 @@ class Reader(models.Model):
     surname = models.CharField(max_length=30)
     passport_number = models.IntegerField()
     date_of_birth = models.DateField()
-    grop_number = models.IntegerField()
+    group_number = models.IntegerField()
 
 class Operation(models.Model):
     book_copy = models.ForeignKey('BookCopy')
@@ -20,20 +20,14 @@ class Operation(models.Model):
     library_employee = models.ForeignKey('LibraryEmployee')
     operation_date = models.DateField()
     required_return_date = models.DateField()
-    OPERATION_TYPE_CHOICES = (
-        ('Выдача', 'Выдача'),
-        ('Приём', 'Приём'),
-        )
-    operation_type = models.CharField(max_length=2,
-                                      choices=OPERATION_TYPE_CHOICES,
-                                      default='Выдача')
+    operation_type = models.CharField(max_length=15)
 
 class BookCopy(models.Model):
+   # author = models.ForeignKey('Author', on_delete=models.SET_DEFAULT('no'))
     name = models.CharField(max_length=30)
-    year_of_publication = models.IntegerField() 
+    year_of_publication = models.IntegerField()
 
 class Author(models.Model):
     name = models.CharField(max_length=30)
     patronymic_name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
-    book_copy = models.ManyToManyField(BookCopy)

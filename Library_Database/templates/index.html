@@ -17,18 +17,20 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Наименование</th>
-                  <th>Время</th>
-                  <th>Дата</th>                
+                  <th>Фамилия</th>
+                  <th>Имя</th>
+                  <th>Отчество</th>
+		  <th>Должность</th>                
                 </tr>
                 </thead>
                 <tbody>
                     {% for employee in employees_list %}
                         <tr>
                             <th scope="row">{{employee.id}}</th>
+                            <td>{{employee.surname}}</td>
                             <td>{{employee.name}}</td>
                             <td>{{employee.patronymic_name}}</td>
-                            <td>{{employee.surname}}</td>
+                            <td>{{employee.position}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -37,23 +39,25 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Имя</th>
-                        <th>Фамилия</th>
-                        <th>Отчество</th>
                         <th>Номер читательского билета</th>
+                        <th>Фамилия</th>
+                        <th>Имя</th>
+                        <th>Отчество</th>
                         <th>Номер паспорта</th>
+                        <th>Номер группы</th>
+                        <th>Дата рождения</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for reader in readers_list %}
                     <tr>
-                        <th scope="row">{{reader.id}}</th>
+                        <th scope="row">{{reader.library_card_number}}</th>
+                        <td>{{reader.surname}}</td>
                         <td>{{reader.name}}</td>
                         <td>{{reader.patronymic_name}}</td>
-                        <td>{{reader.surname}}</td>
-                        <td>{{reader.library_card_number}}</td>
                         <td>{{reader.passport_number}}</td>
+                        <td>{{reader.group_number}}</td>
+                        <td>{{reader.date_of_birth}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -62,22 +66,68 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+			<th>ID операции</th>
                         <th>ID книги</th>
-                        <th>Номер читательского билета</th>
                         <th>ID сотрудника библиотеки</th>
+                        <th>Номер читательского билета</th>
                         <th>Дата</th>
                         <th>Требуемая дата возврата книги</th>
+                        <th>Тип операции</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for operation in operations_list %}
                     <tr>
                         <th scope="row">{{operation.id}}</th>
-                        <td>{{operation.library_card_number}}</td>
+                        <td>{{operation.book_copy}}</td>
                         <td>{{operation.library_employee}}</td>
+                        <td>{{operation.library_card_number}}</td>
                         <td>{{operation.operation_date}}</td>
                         <td>{{operation.required_return_date}}</td>
+                        <td>{{operation.operation_type}}</td>
                     </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+	    <big>Экземпляры книг</big>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID книги</th>
+                  <th>ID автора</th>
+                  <th>Название</th>
+                  <th>Год публикации</th>           
+                </tr>
+                </thead>
+                <tbody>
+                    {% for copy in book_copies_list %}
+                        <tr>
+                            <th scope="row">{{copy.id}}</th>
+                            <td>{{copy.author}}</td>
+                            <td>{{copy.name}}</td>
+                            <td>{{copy.year_of_publication}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+	    <big>Авторы книг</big>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID автора</th>
+                  <th>Фамилия</th>
+                  <th>Имя</th>
+                  <th>Отчество</th>                
+                </tr>
+                </thead>
+                <tbody>
+                    {% for author in authors_list %}
+                        <tr>
+                            <th scope="row">{{author.id}}</th>
+                            <td>{{author.surname}}</td>
+                            <td>{{author.name}}</td>
+                            <td>{{author.patronymic_name}}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>

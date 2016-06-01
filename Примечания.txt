@@ -1,0 +1,13 @@
+В settings.py под вопросом изменить раздел DATABASES:
+DATABASES = {
+    'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'HOST': ' ',
+		'NAME': 'C:/lab2/lab2/dbsite.db3',
+		'PASSWORD': '',
+		'PORT': ' ',
+		'USER': ' '
+    }
+}
+
+То же в models.py
